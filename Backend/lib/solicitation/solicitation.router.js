@@ -6,7 +6,7 @@
 
 const routes = require('express').Router()
 const { endpoints } = require('./solicitation.controller')
-const { asyncController } = require('../util/async.decorators')
+const { asyncController } = require('../util')
 
 /**
  * GET /solicitation/:solicitationId

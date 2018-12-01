@@ -1,5 +1,5 @@
 const debug = require('debug')('tudor:launcher')
-const config = require('../config.json')
+const config = require('../config.js')
 const app = require('./app')(config)
 
 module.exports = function start () {

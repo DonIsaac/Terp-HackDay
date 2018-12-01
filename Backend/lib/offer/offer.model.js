@@ -28,7 +28,7 @@ Object.assign(offerSchema.methods, controllers.methods)
  * Offer Statics
  * ================
  */
-Object.assign(offerSchema.statics, controller.statics)
+Object.assign(offerSchema.statics, controllers.statics)
 
 /* ==============
  * Offer Hooks

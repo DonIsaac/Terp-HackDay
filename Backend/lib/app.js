@@ -1,11 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
-const compression = require('compression')
+const bodyParser = require('body-parser')// https://www.npmjs.com/package/body-parser
+const compression = require('compression')// https://www.npmjs.com/package/compression
 const morgan = require('morgan')
-const session = require('express-session')
+const session = require('express-session')// https://www.npmjs.com/package/express-session
 const bluebird = require('bluebird')
-const helmet = require('helmet')
+const helmet = require('helmet')// https://www.npmjs.com/package/helmet
+const passport = require('passport')// http://www.passportjs.org/
 const debug = require('debug')('tudor:application')
 const { errorHandler, logger } = require('./util')
 
@@ -25,6 +26,9 @@ module.exports = exports = function createApp (options) {
     process.exit(1)
   })
 
+  // Configure PassportJS
+  require('./passport.config.js')
+
   /*
      * ========================================
      * Load that funky middleware white boyyyyy
@@ -33,14 +37,16 @@ module.exports = exports = function createApp (options) {
 
   // HTTP Logger, only enabled if system is in development
   if (app.get('env') === 'development') {
-    app.use(morgan('combined')('combined', { 'stream': logger.stream }))
+    app.use(morgan('combined', { 'stream': logger.stream }))
   }
-  app.use(helmet()) // https://www.npmjs.com/package/helmet
-  app.use(compression()) // https://www.npmjs.com/package/compression
+  app.use(helmet())
+  app.use(compression())
   app.use(bodyParser.json({
     strict: true // Only accept objects and arrays
-  })) // https://www.npmjs.com/package/body-parser
-  app.use(session(options.server.session)) // https://www.npmjs.com/package/express-session
+  }))
+  app.use(session(options.server.session))
+  app.use(passport.initialize())
+  app.use(passport.session())
 
   app.set('port', options.server.port)
 

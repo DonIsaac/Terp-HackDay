@@ -10,17 +10,31 @@ const { Schema, model } = mongoose
 const Types = Schema.Types
 const controllers = require('./solicitation.controller')
 
-/* ===========================
+/* ===============================
  * Solicitation Schema Declaration
- * ===========================
+ * ===============================
  */
 const solicitationSchema = new Schema({
-
+  student: {
+    type: Types.ObjectId,
+    required: true
+  },
+  course: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    default: 'No description'
+  },
+  descriptors: {
+    type: [String]
+  }
 })
 
-/* ================
+/* ====================
  * Solicitation Methods
- * ================
+ * ====================
  */
 Object.assign(solicitationSchema.methods, controllers.methods)
 
@@ -28,7 +42,7 @@ Object.assign(solicitationSchema.methods, controllers.methods)
  * Solicitation Statics
  * ================
  */
-Object.assign(solicitationSchema.statics, controller.statics)
+Object.assign(solicitationSchema.statics, controllers.statics)
 
 /* ==============
  * Solicitation Hooks

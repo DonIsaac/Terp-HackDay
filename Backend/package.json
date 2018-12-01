@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "serve": "standard && DEBUG=tudor:* nodemon index.js",
+    "serve": "DEBUG=tudor:* nodemon",
     "test": "mocha",
     "clean": "standard --fix"
   },
@@ -35,6 +35,8 @@
     "mongoose": "^5.3.14",
     "mongoose-unique-validator": "^2.0.2",
     "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {

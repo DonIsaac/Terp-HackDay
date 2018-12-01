@@ -61,6 +61,7 @@ userSchema.pre('save', async function () {
  */
 
 userSchema.plugin(uniqueValidator, 'A unique value is required')
+
 /**
  * Export the newly created model
  * @type {Model}

@@ -11,6 +11,7 @@ const config = {
     session: {
       secret: 'default secret, set secret in env file',
       resave: false,
+      saveUninitialized: false,
       cookie: {
         maxAge: 1.8e+7
       }
