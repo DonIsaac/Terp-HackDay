@@ -1,2 +1,2 @@
-module.exports = require('./offer.model');
-module.exports.Router = require('./offer.router');
+module.exports = require('./offer.model')
+module.exports.Router = require('./offer.router')

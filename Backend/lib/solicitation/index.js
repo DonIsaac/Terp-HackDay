@@ -1,2 +1,2 @@
-module.exports = require('./solicitation.model');
-module.exports.Router = require('./solicitation.router');
+module.exports = require('./solicitation.model')
+module.exports.Router = require('./solicitation.router')

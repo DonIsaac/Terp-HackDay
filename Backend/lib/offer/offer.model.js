@@ -1,14 +1,14 @@
 /**
  * Defines the Offer's data structures and functionality.
- * 
+ *
  * @author <YOUR NAME HERE>
  */
 
- // Imports
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
-const Types = Schema.Types;
-const controllers = require('./offer.controller');
+// Imports
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
+const Types = Schema.Types
+const controllers = require('./offer.controller')
 
 /* ===========================
  * Offer Schema Declaration
@@ -16,19 +16,19 @@ const controllers = require('./offer.controller');
  */
 const offerSchema = new Schema({
 
-});
+})
 
 /* ================
  * Offer Methods
  * ================
  */
-Object.assign(offerSchema.methods, controllers.methods);
+Object.assign(offerSchema.methods, controllers.methods)
 
 /* ================
  * Offer Statics
  * ================
  */
-Object.assign(offerSchema.statics, controller.statics);
+Object.assign(offerSchema.statics, controller.statics)
 
 /* ==============
  * Offer Hooks
@@ -39,4 +39,4 @@ Object.assign(offerSchema.statics, controller.statics);
  * Export the newly created model
  * @type {Model}
  */
-const Offer = module.exports = model('Offer', offerSchema);
+const Offer = module.exports = model('Offer', offerSchema)

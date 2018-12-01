@@ -1,2 +1,2 @@
-module.exports = require('./user.model');
-module.exports.Router = require('./user.router');
+module.exports = require('./user.model')
+module.exports.Router = require('./user.router')

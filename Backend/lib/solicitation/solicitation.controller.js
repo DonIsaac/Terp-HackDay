@@ -1,12 +1,14 @@
 /**
  * Business logic and route handlers for Solicitation
- * 
+ *
  * @author <YOUR NAME HERE>
  */
 
-let methods = {},
-    statics = {},
-    endpoints = {};
+let methods = {}
+
+let statics = {}
+
+let endpoints = {}
 
 /* =======
  * METHODS
@@ -19,7 +21,7 @@ let methods = {},
  */
 
 /* =========
- * ENDPOINTS 
+ * ENDPOINTS
  * =========
  */
 
@@ -58,4 +60,4 @@ endpoints.delete = async function (req, res) {
 
 }
 // Export controllers
-module.exports = { methods, statics, endpoints };
+module.exports = { methods, statics, endpoints }

@@ -7,10 +7,10 @@ const session = require('express-session')
 const bluebird = require('bluebird')
 const helmet = require('helmet')
 const debug = require('debug')('tudor:application')
-const errorHandler = require('./util').errorHandler
+const { errorHandler, logger } = require('./util')
 
 // Create express application and set it as the export
-module.exports = exports = function createApp(options) {
+module.exports = exports = function createApp (options) {
   const app = express()
 
   // !* Ensure global and mongoose Promises are consistent *!
@@ -33,19 +33,22 @@ module.exports = exports = function createApp(options) {
 
   // HTTP Logger, only enabled if system is in development
   if (app.get('env') === 'development') {
-    app.use(morgan('combined'))
+    app.use(morgan('combined')('combined', { 'stream': logger.stream }))
   }
   app.use(helmet()) // https://www.npmjs.com/package/helmet
   app.use(compression()) // https://www.npmjs.com/package/compression
   app.use(bodyParser.json({
     strict: true // Only accept objects and arrays
   })) // https://www.npmjs.com/package/body-parser
-  app.use(session(options.session)) // https://www.npmjs.com/package/express-session
+  app.use(session(options.server.session)) // https://www.npmjs.com/package/express-session
 
   app.set('port', options.server.port)
 
   const baseURL = '/api/v0'
-  // app.use(baseURL, require('./endpoint').Router);
+
+  app.use(`${baseURL}/user`, require('./user').Router)
+  app.use(`${baseURL}/solicit`, require('./solicitation').Router)
+  app.use(`${baseURL}/offer`, require('./offer').Router)
 
   // Error handler middleware, should always come after all routers
   app.use(errorHandler)

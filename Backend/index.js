@@ -1,4 +1,4 @@
 /**
  * Launch server (declared internally)
  */
-require('./lib/server')();
+require('./lib/server')()
