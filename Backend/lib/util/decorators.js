@@ -2,7 +2,7 @@
  * Decorator utilities
  */
 
-const debug = require('debug')('tudor:controller')
+const debug = require('debug')('tudoor:controller')
 
 /**
  * Decorates an asynchronous controller in a Promise to make it compatible with

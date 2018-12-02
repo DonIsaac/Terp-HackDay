@@ -1,5 +1,5 @@
 const Boom = require('boom')
-const debug = require('debug')('tudor:err')
+const debug = require('debug')('tudoor:err')
 
 module.exports.errorHandler = async function (err, req, res, next) {
   // Boomify non-boom error

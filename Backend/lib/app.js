@@ -7,7 +7,7 @@ const session = require('express-session')// https://www.npmjs.com/package/expre
 const bluebird = require('bluebird')
 const helmet = require('helmet')// https://www.npmjs.com/package/helmet
 const passport = require('passport')// http://www.passportjs.org/
-const debug = require('debug')('tudor:application')
+const debug = require('debug')('tudoor:application')
 const { errorHandler, logger } = require('./util')
 
 // Create express application and set it as the export
